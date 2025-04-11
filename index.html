@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zane Eclipse | Fantasy Ebook</title>
+  <meta name="description" content="A poetic and mystical fantasy ebook set in gothic ruins and enchanted forests. A short read that will transport your soul. Available now on Amazon Kindle.">
+  <meta name="keywords" content="fantasy ebook, gothic ruins story, mystical forest tale, magical short story, poetic fiction, atmospheric fantasy, Kindle ebook spiritual, dark magic short read, enchanted book, spiritual literature">
+  <meta name="author" content="Oscar Gustavo Carranza Tejada">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: 'Georgia', serif; }
+    #contenido {
+      background-image: url('cover.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+    button:hover { background-color: rgba(255, 255, 255, 0.2); }
+    section {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 1rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div id="contenido">
+    <h1>Discover the Mystic Tale</h1>
+    <button onclick="openEbook()">📖 Read the ebook now</button>
+  </div>
+
+  <section>
+    <h2>🌲 Step Into a World of Gothic Ruins, Enchanted Forests, and Mystical Light</h2>
+    <p><strong>Are you looking for a short, magical read that leaves a lasting impression?</strong> This <strong>fantasy ebook</strong> invites you into a dreamlike realm where ancient ruins whisper secrets and the forest breathes with mystery.</p>
+    <p><strong>Perfect for fans of poetic, gothic, and spiritual literature</strong>, this story blends the beauty of nature with a haunting atmosphere, creating a unique and immersive reading experience.</p>
+    <h3>✨ What makes this ebook special?</h3>
+    <ul>
+      <li>🌌 A brief yet powerful story for your next quiet evening or weekend escape.</li>
+      <li>🏰 A setting inspired by <strong>gothic aesthetics, medieval ruins, and mystical forests</strong>.</li>
+      <li>🦋 Mysterious characters, symbolic undertones, and an emotional journey through words.</li>
+    </ul>
+    <p><strong>Available on Amazon Kindle worldwide</strong>. Tap the button below and begin your journey today.</p>
+    <div style="text-align:center; margin: 2rem 0;">
+      <button onclick="openEbook()">📖 Read the ebook now</button>
+    </div>
+    <h3>🔍 Keywords for search engines:</h3>
+    <p>
+      fantasy ebook | gothic ruins story | mystical forest book | magical short read | poetic fantasy tale |
+      atmospheric ebook | spiritual fiction kindle | enchanted story | gothic short story | dark magical realism
+    </p>
+  </section>
+
+  <script>
+    function openEbook() {
+      const links = {
+        US: "https://www.amazon.com/dp/B0DXDGZVR9",
+        GB: "https://www.amazon.co.uk/dp/B0DXDGZVR9",
+        DE: "https://www.amazon.de/dp/B0DXDGZVR9",
+        FR: "https://www.amazon.fr/dp/B0DXDGZVR9",
+        ES: "https://www.amazon.es/dp/B0DXDGZVR9",
+        IT: "https://www.amazon.it/dp/B0DXDGZVR9",
+        NL: "https://www.amazon.nl/dp/B0DXDGZVR9",
+        BR: "https://www.amazon.com.br/dp/B0DXDGZVR9",
+        CA: "https://www.amazon.ca/dp/B0DXDGZVR9",
+        MX: "https://www.amazon.com.mx/dp/B0DXDGZVR9",
+        AU: "https://www.amazon.com.au/dp/B0DXDGZVR9",
+        DEFAULT: "https://www.amazon.com/dp/B0DXDGZVR9"
+      };
+      fetch("https://ipapi.co/json/")
+        .then(response => response.json())
+        .then(data => {
+          const country = data.country || "DEFAULT";
+          const url = links[country] || links.DEFAULT;
+          window.open(url, "_blank");
+        })
+        .catch(() => window.open(links.DEFAULT, "_blank"));
+    }
+  </script>
+</body>
+</html>
